@@ -1,16 +1,89 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
 
+:root {
+    --body-bg: #FFFDF7;
+    --body-color: #2c2c2c;
+    --link: #2c2c2c;
+    --link-hover:rgb(161, 95, 20);
+}
+
+.dark-mode:root {
+    --body-bg: #212529;
+    --body-color: #899095;
+    --link: #899095;
+    --link-hover: #FFFDF7;
+}
+
 html, body{
     padding: 0;
     border: 0;
     font-family: 'Cormorant Garamond', serif;
-    background-color: #FFFDF7;
+    background-color: var(--body-bg);
+    color: var(--body-color) ;
 
+}
+
+input[type="checkbox"]{
+    -webkit-appearance: none;
+    visibility: hidden;
+    display: none;
+}
+
+.check{
+    position: relative;
+    margin-top: 5%;
+    display: block;
+    width: 40px;
+    height: 20px;
+    background:#212529;;
+    cursor: pointer;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: ease-in 0.5s;
+}
+
+input[type="checkbox"]:checked ~ .check{
+    background: #FFFDF7;
+    /* box-shadow: 0 0 0 1200px #092c3e; */
+}
+
+.check:before{
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    background: #fff;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    transition: 0.5s;
+}
+
+input[type="checkbox"]:checked ~ .check:before{
+    transform: translateX(-50px);
+}
+
+.check:after{
+    content: '';
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    background: #212529;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    transition: 0.5s;
+    transform: translateX(50px);
+}
+
+input[type="checkbox"]:checked ~ .check:after{
+    transform: translateX(0px);
 }
 
 .lembrar{
     color:green;
 }
+
 
 h1{
     text-align: center;
@@ -28,6 +101,19 @@ h3{
     font-size: 1.5em;
     font-weight: 500;
 }
+
+a{
+    color: var(--body-color);
+}
+
+a:visited{
+    color: var(--body-color);
+}
+
+a:hover {
+    color: var(--link-hover);
+}
+
 
 @media (max-width: 400px){
     .principal {
